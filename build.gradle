@@ -1,0 +1,31 @@
+allprojects{
+    task hello {
+        doLast{
+           task -> println "I am $task.project.name"
+        }
+    }
+}   
+subprojects{
+	apply plugin:"application"
+	repositories{
+		mavenCentral()
+	}   
+}   
+
+project(':app'){
+ 
+  mainClassName = 'app.App'
+  dependencies{
+	compile "joda-time:joda-time:2.2"
+  }	 
+ 
+}
+
+project(':api'){
+  mainClassName = 'api.Api' 
+}
+
+
+project(':com'){
+   mainClassName = 'com.Com'
+}
