@@ -17,14 +17,18 @@ project(':app'){
   mainClassName = 'app.App'
   dependencies{
 	compile "joda-time:joda-time:2.2"
-  }	 
- 
+  }	  
+
+ task myapp{
+	doLast{
+		println "myapp task call"	
+	}
+ }
 }
 
 project(':api'){
   mainClassName = 'api.Api' 
 }
-
 
 project(':com'){
    mainClassName = 'com.Com'
